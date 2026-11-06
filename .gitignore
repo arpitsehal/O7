@@ -25,3 +25,4 @@ Reactjs.pdf
 *.njsproj
 *.sln
 *.sw?
+.claude/

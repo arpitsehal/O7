@@ -10,7 +10,7 @@ function QuizList({ quizzes }) {
   if (quizzes.length === 0) {
     return (
       <div className="card empty-state">
-        No quizzes yet. Create one above to get started.
+        No quizzes yet. Use "Create Quiz" in the nav bar to get started.
       </div>
     )
   }

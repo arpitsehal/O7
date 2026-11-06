@@ -1,21 +1,14 @@
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import QuizForm from '../components/QuizForm.jsx'
-import QuizList from '../components/QuizList.jsx'
-import { getQuizzes } from '../utils/storage.js'
 
 function CreateQuiz() {
-  const [quizzes, setQuizzes] = useState(getQuizzes())
+  const navigate = useNavigate()
 
-  function refresh() {
-    setQuizzes(getQuizzes())
+  function handleCreated() {
+    navigate('/')
   }
 
-  return (
-    <div>
-      <QuizForm onCreated={refresh} />
-      <QuizList quizzes={quizzes} />
-    </div>
-  )
+  return <QuizForm onCreated={handleCreated} />
 }
 
 export default CreateQuiz

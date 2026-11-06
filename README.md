@@ -1,16 +1,38 @@
-# React + Vite
+# Interactive Quiz & Analytics Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React + Vite app for creating quizzes, taking them under a countdown timer,
+and viewing scored results on a leaderboard with basic analytics. Data is
+persisted in the browser via `localStorage` (no backend required).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Quiz builder** — title, subject, difficulty, duration, and a dynamic list
+  of questions (text, options, correct answer, marks). Total marks update
+  live as questions are added/removed. Duplicate quiz titles are blocked.
+- **Quiz taking** — student name/roll entry, one question at a time with a
+  question navigator, a countdown timer that auto-submits on expiry, and a
+  live score that updates as answers are selected.
+- **Score summary** — total score, percentage, pass/fail, and a per-question
+  breakdown (your answer vs. correct answer vs. marks earned). Unanswered
+  questions are handled gracefully.
+- **Leaderboard & analytics** — results ranked by score (percentage as
+  tiebreaker), filterable by subject/difficulty, plus a simple average-score
+  bar chart per subject.
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+Then open the printed local URL. Build for production with `npm run build`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Project structure
+
+```
+src/
+  components/   QuestionEditor, QuizForm, QuizList, Timer, Navbar
+  pages/        CreateQuiz, TakeQuiz, Results, Leaderboard
+  utils/        storage.js (localStorage), scoring.js (score/summary logic)
+```
